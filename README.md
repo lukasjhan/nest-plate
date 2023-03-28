@@ -13,3 +13,4 @@ A boilerplate for NestJS projects.
 ## TODO
 
 * Add Database support (prisma)
+* jwt auth
