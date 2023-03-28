@@ -7,7 +7,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "clean": "rm -rf dist && rm -rf coverage && rm -rf node_modules && yarn clean:db && yarn",
-    "clean:db": "docker-compose down && docker-compose rm -s -f -v",
+    "clean:db": "yarn stop:db && docker-compose rm -s -f -v",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
@@ -21,6 +21,7 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "start:db": "docker-compose up -d",
+    "stop:db": "docker-compose down",
     "restart:db": "yarn clean:db && yarn start:db",
     "db-push": "prisma db push",
     "db-studio": "prisma studio",
