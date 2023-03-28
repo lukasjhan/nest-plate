@@ -9,8 +9,9 @@ A boilerplate for NestJS projects.
 * Body Validation
 * Unit Tests
 * E2E Tests
+* Database support (prisma)
+* jwt auth
 
 ## TODO
 
-* Add Database support (prisma)
-* jwt auth
+* Add auth test
