@@ -4,6 +4,8 @@ import { AuthModule } from './auth/auth.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { AtGuard } from './common/guards/at.guard';
 import { ConfigModule } from '@nestjs/config';
+import { APP_INTERCEPTOR } from '@nestjs/core';
+import { TimeoutInterceptor } from './intercepters/timeout.intercepter';
 
 @Module({
   imports: [
@@ -19,6 +21,10 @@ import { ConfigModule } from '@nestjs/config';
     {
       provide: 'APP_GUARD',
       useClass: AtGuard,
+    },
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: TimeoutInterceptor,
     },
   ],
 })

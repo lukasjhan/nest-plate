@@ -12,11 +12,13 @@ import { DataService } from './data.service';
 import { CreateDataDTO } from './dto/create-data.dto';
 import { UpdateDataDTO } from './dto/update-data.dto';
 import { Data } from './entities/data.entity';
+import { TimeoutHandler } from 'src/intercepters/timeout-handle.decorator';
 
 @Controller('data')
 export class DataController {
   constructor(readonly service: DataService) {}
 
+  @TimeoutHandler(2000)
   @Get()
   getAll(): Data[] {
     return this.service.getAll();
